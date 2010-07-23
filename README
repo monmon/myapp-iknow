@@ -1,0 +1,27 @@
+This is Perl module MyApp::iKnow.
+
+INSTALLATION
+
+MyApp::iKnow installation is straightforward. If your CPAN shell is set up,
+you should just be able to do
+
+    % cpan MyApp::iKnow
+
+Download it, unpack it, then build it as per the usual:
+
+    % perl Makefile.PL
+    % make && make test
+
+Then install it:
+
+    % make install
+
+DOCUMENTATION
+
+MyApp::iKnow documentation is available as in POD. So you can do:
+
+    % perldoc MyApp::iKnow
+
+to read the documentation online with your favorite pager.
+
+monmon
