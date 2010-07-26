@@ -3,4 +3,5 @@ use strict;
 use warnings;
 use MyApp::iKnow;
 
-warn MyApp::iKnow->tr('world');
+my $word = shift || 'word';
+warn MyApp::iKnow->tr($word);
