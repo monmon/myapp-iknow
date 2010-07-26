@@ -26,7 +26,6 @@ sub search {
         +{ 
             en   => __trim($_->{title}),
             ja   => __trim($_->{description}), 
-            link => $_->{link},
         }
     } @{$rss->{items}}; 
 
