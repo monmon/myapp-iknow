@@ -20,9 +20,15 @@ sub search {
     my $tree_ref = $parser->parsefile($file_path);
 
     my $total_res = $tree_ref->{vocabulary}->{'openSearch:totalResults'};
-    my $items_ref = ($total_res == 1) ? [$tree_ref->{vocabulary}->{items}->{item}]
-                  : ($total_res)      ? $tree_ref->{vocabulary}->{items}->{item}
-                  :                     {}
+    use Data::Dumper;
+    warn Dumper $total_res;
+    warn ref $tree_ref->{vocabulary}->{items}->{item};
+    #my $items_ref = ($total_res == 1) ? [$tree_ref->{vocabulary}->{items}->{item}]
+    #              : ($total_res)      ? $tree_ref->{vocabulary}->{items}->{item}
+    #              :                     {}
+    #              ;
+    my $items_ref = ($total_res > 0) ? $tree_ref->{vocabulary}->{items}->{item}
+                  :                    {}
                   ;
 
     my %tr_of;

@@ -6,7 +6,7 @@ our $VERSION = '0.01';
 use utf8;
 use Carp;
 use Encode;
-use Digest::MD5 qw(md5_hex);
+use Digest::MD5;
 use FindBin qw($Bin);
 use LWP::Simple ();
 use Path::Class;
@@ -25,7 +25,10 @@ sub get_file_path {
     my($class, $uri) = @_;
 
     __cache_dir();
-    my $cache = sprintf("%s/%s", $CacheDir, Digest::MD5::md5_hex($uri));
+
+    my $ctx = Digest::MD5->new;
+    $ctx->add($uri);
+    my $cache = sprintf("%s/%s", $CacheDir, $ctx->hexdigest);
     
     my $status = LWP::Simple::mirror($uri, $cache)
         or die "cannot get content from $uri: $!";

@@ -3,6 +3,8 @@ name 'MyApp-iKnow';
 all_from 'lib/MyApp/iKnow.pm';
 
 # requires '';
+requires 'XML::TreePP';
+requires 'XML::RSS';
 
 tests 't/*.t';
 author_tests 'xt';
